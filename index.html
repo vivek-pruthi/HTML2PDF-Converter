@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML to PDF Converter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="bg-shape bg-shape-one"></div>
+  <div class="bg-shape bg-shape-two"></div>
+
+  <main class="app-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Static HTML, CSS and JavaScript</p>
+        <h1>Convert HTML into a clean PDF in one click.</h1>
+        <p class="hero-copy">
+          Paste HTML, load a file, preview the result instantly, and export a polished PDF without leaving the browser.
+        </p>
+      </div>
+
+      <div class="hero-card">
+        <div class="stat">
+          <span>Mode</span>
+          <strong>Client-side</strong>
+        </div>
+        <div class="stat">
+          <span>Export</span>
+          <strong>PDF / HTML</strong>
+        </div>
+        <div class="stat">
+          <span>Library</span>
+          <strong>html2pdf.js</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="editor-panel panel">
+        <div class="panel-header">
+          <div>
+            <h2>Input HTML</h2>
+            <p>Write or paste the HTML you want to convert.</p>
+          </div>
+          <label class="file-button" for="fileInput">Load HTML</label>
+          <input id="fileInput" type="file" accept=".html,.htm,.txt" hidden />
+        </div>
+
+        <textarea id="htmlInput" spellcheck="false"></textarea>
+
+        <div class="controls">
+          <label>
+            Page size
+            <select id="pageSize">
+              <option value="a4">A4</option>
+              <option value="letter">Letter</option>
+              <option value="legal">Legal</option>
+            </select>
+          </label>
+
+          <label>
+            Orientation
+            <select id="orientation">
+              <option value="portrait">Portrait</option>
+              <option value="landscape">Landscape</option>
+            </select>
+          </label>
+
+          <label>
+            Margin
+            <input id="margin" type="range" min="0" max="20" value="10" />
+          </label>
+
+          <label>
+            Scale
+            <input id="scale" type="range" min="1" max="3" step="0.1" value="2" />
+          </label>
+        </div>
+
+        <div class="action-row">
+          <button id="previewBtn" class="secondary">Refresh preview</button>
+          <button id="downloadHtmlBtn" class="ghost">Download HTML</button>
+          <button id="convertBtn" class="primary">Convert to PDF</button>
+        </div>
+      </div>
+
+      <div class="preview-panel panel">
+        <div class="panel-header">
+          <div>
+            <h2>Live Preview</h2>
+            <p>The preview is rendered in a sandboxed iframe.</p>
+          </div>
+          <span id="statusBadge" class="status">Ready</span>
+        </div>
+
+        <iframe id="previewFrame" title="HTML preview"></iframe>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
